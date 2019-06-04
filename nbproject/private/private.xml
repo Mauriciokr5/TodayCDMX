@@ -4,15 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/web/newUsu.jsp</file>
-            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/src/java/beans/metodo.java</file>
-            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/web/delUsu.jsp</file>
-            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/src/java/registroAdmin.java</file>
-            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/src/java/beans/USU.java</file>
-            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/src/java/mod2.java</file>
-            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/src/java/registroBD.java</file>
+            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/web/doEncuesta.jsp</file>
+            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/web/encuestas.jsp</file>
+            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/web/verEncuesta.jsp</file>
+            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/src/java/registroAdminAlca.java</file>
             <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/web/ses.jsp</file>
-            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/web/registro.jsp</file>
-            <file>file:/C:/Users/Mauricio%20Beltrán/Documents/NetBeansProjects/ProAula/web/crudUsu.jsp</file>
         </group>
     </open-files>
 </project-private>

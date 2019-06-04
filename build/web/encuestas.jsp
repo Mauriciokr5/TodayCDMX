@@ -1,6 +1,6 @@
 <%-- 
-    Document   : crudUsu
-    Created on : 31/05/2019, 07:12:36 PM
+    Document   : encuestas
+    Created on : 4/06/2019, 12:26:26 AM
     Author     : Mauricio Beltrán
 --%>
 
@@ -35,14 +35,13 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./CSS/navbar_css.css"/>
-        <link rel="stylesheet" href="./CSS/login_css.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
         <header>
             <div class="container">
-                <h1 class="logo">TodayCDMX</h1>
+                <h1 class="logo">ProAula</h1>
 
                 <nav>
                     <ul>
@@ -56,9 +55,7 @@
                     </ul>
                 </nav>
             </div>
-        </header> 
-        <h1 class="rale" >Usuarios</h1>
-        
+        </header>
         <div class="container">
             <table class="table table-hover">
                 <tbody>
@@ -69,13 +66,6 @@
                         <th>
                             Nombre
                         </th>
-                        <th>
-                            Correo
-                        </th>
-                        <th>
-                            Contraseña
-                        </th>
-                        <th><a href="newUsu.jsp" ><button type="button" class="btn btn-success">Nuevo</button></a></th>
                         <th></th>
                     </tr>
                     <%
@@ -86,7 +76,7 @@
 
                             Statement st= cn.createStatement();
 
-                            ResultSet rs= st.executeQuery("select * from usuario where idusuario>1;");
+                            ResultSet rs= st.executeQuery("SELECT Distinct usuario.idusuario,nombre FROM proaula.respuestas INNER join usuario on usuario.idusuario= respuestas.idusuario;");
 
                             while(rs.next()){
                                 //out.print(rs.getString("comentario"));
@@ -99,16 +89,7 @@
                                             <%out.print(rs.getString("nombre"));%>
                                         </td>
                                         <td>
-                                            <%out.print(rs.getString("correo"));%>
-                                        </td>
-                                        <td>
-                                            <%out.print(rs.getString("contrasena"));%>
-                                        </td>
-                                        <td>
-                                            <a href="modUsu.jsp?idUSU=<%out.print(rs.getString("idusuario"));%>"><button  type="button" class="btn btn-warning">Modificar</button></a>
-                                        </td>
-                                        <td>
-                                            <a href="delUsu.jsp?idUSU=<%out.print(rs.getString("idusuario"));%>"><button  type="button" class="btn btn-danger">Eliminar</button></a>
+                                            <a href="verEncuesta.jsp?idUSU=<%out.print(rs.getString("idusuario"));%>"><button  type="button" class="btn btn-warning">Ver Encuesta</button></a>
                                         </td>
                                     </tr>
                                 <%
@@ -125,5 +106,5 @@
                 </tbody>
             </table>
         </div>
-        </body>
+    </body>
 </html>

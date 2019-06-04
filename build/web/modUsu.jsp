@@ -71,6 +71,7 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./CSS/navbar_css.css"/>
+        <link rel="stylesheet" href="./CSS/login_css.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
@@ -92,20 +93,26 @@
                 </nav>
             </div>
         </header>
-        <h1>Modificar Usuario</h1>
+        <div class="container">
+            <h1 class="rale">Modificar Usuario</h1>
+            <div class="row justify-content-md-center">
+                <div class="col-md-4">
+                    <form action="mod2">
+                        <input type="hidden" value="<%out.print(id);%>" name="id">
+                        <p>Nombre</p>
+                        <input type="text" value="<%out.print(e.getNombre());%>" name="nom">
+                        <p>Correo</p>
+                        <input type="email" value="<%out.print(e.getCorreo());%>" name="mail">
+                        <p>Contraseña</p>
+                        <input type="password" value="<%out.print(e.getContrasena());%>" name="contra">
+                        <p>Tipo Usario</p>
+                        <input type="text" value="<%out.print(e.getTipo());%>" name="tipo">
+                        <input type="submit" value="Enviar">
+
+                    </form>
+                </div>
+            </div>
+        </div>
         
-        <form action="mod2">
-            <input type="hidden" value="<%out.print(id);%>" name="id">
-            <p>Nombre</p>
-            <input type="text" value="<%out.print(e.getNombre());%>" name="nom">
-            <p>Correo</p>
-            <input type="email" value="<%out.print(e.getCorreo());%>" name="mail">
-            <p>Contraseña</p>
-            <input type="password" value="<%out.print(e.getContrasena());%>" name="contra">
-            <p>Tipo Usario</p>
-            <input type="text" value="<%out.print(e.getTipo());%>" name="tipo">
-            <input type="submit" value="Enviar">
-            
-        </form>
     </body>
 </html>

@@ -35,6 +35,7 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./CSS/navbar_css.css"/>
+        <link rel="stylesheet" href="./CSS/login_css.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
@@ -44,7 +45,7 @@
             %>
                 <header>
                     <div class="container">
-                        <h1 class="logo">ProAula</h1>
+                        <h1 class="logo">TodayCDMX</h1>
 
                         <nav>
                             <ul>
@@ -64,7 +65,7 @@
             %>
                 <header>
                     <div class="container">
-                        <h1 class="logo">ProAula</h1>
+                        <h1 class="logo">TodayCDMX</h1>
 
                         <nav>
                             <ul>
@@ -110,10 +111,8 @@
                 }
                 %>
             </div>
-            <div class="col-md-9">
-                <img src="SRC/CDMX.PNG" alt="cdmx" style="width: 40%;" class="nos"/>
-                <img src="SRC/CDMX2.png" alt="cdmx2" style="width: 40%;" class="nos"/>
-                <div id="nom"></div>
+            <div class="col-md-2">
+                <br><br><br>
                 <%
                 try{
                     dbmanager db= new dbmanager();
@@ -128,7 +127,7 @@
                         //out.print(rs.getString("comentario"));
                         %>
                         <a id="<%out.print(rs.getString("idtipografica"));%>" onclick="redi(this.id)" style="display:none;" name="boton"><button  type="button" class="btn btn-light" ><%out.print(rs.getString("tipografica"));%></button></a>
-                       
+                        <br><br>
                         <%
                         //plat.add(rs.getString("platillos.platillo"));
                     }
@@ -139,6 +138,13 @@
 
                 }
                 %>
+            </div>
+            <div class="col-md-4">
+                <h1 id="nom" class="rale" ></h1>
+                <img src="SRC/CDMX.PNG" alt="cdmx" style="width: 100%;" class="nos"/>
+                <img src="SRC/CDMX2.png" alt="cdmx2" style="width: 100%;" class="nos"/>
+                
+                
                 
                 
             </div>

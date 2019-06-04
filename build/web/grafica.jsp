@@ -35,6 +35,7 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./CSS/navbar_css.css"/>
+        <link rel="stylesheet" href="./CSS/login_css.css"/>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -47,7 +48,7 @@
             %>
                 <header>
                     <div class="container">
-                        <h1 class="logo">ProAula</h1>
+                        <h1 class="logo">TodayCDMX</h1>
 
                         <nav>
                             <ul>
@@ -67,7 +68,7 @@
             %>
                 <header>
                     <div class="container">
-                        <h1 class="logo">ProAula</h1>
+                        <h1 class="logo">TodayCDMX</h1>
 
                         <nav>
                             <ul>
@@ -102,7 +103,10 @@
                 ResultSet rs=ps.executeQuery();
                 if (rs.next()) {
                     %>
-                    <div id="grafica" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+                    <div class="container">
+                        <div id="grafica" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+                        
+                    </div>
                     <script>
                         Highcharts.chart('grafica', {
                         chart: {
@@ -160,7 +164,7 @@
                     <%
 
                 }else{
-                    out.print("no hay datos");
+                    out.print("<h1 class=\"rale\">No hay datos</h1>");
                 }       
                 cn.close();        
             }catch(Exception d){

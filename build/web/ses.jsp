@@ -56,13 +56,14 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./CSS/navbar_css.css"/>
+        <link rel="stylesheet" href="./CSS/login_css.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
         <header>
             <div class="container">
-                <h1 class="logo">ProAula</h1>
+                <h1 class="logo">TodayCDMX</h1>
 
                 <nav>
                     <ul>
@@ -103,7 +104,7 @@
         switch(nivel){
             case 1:
                 %>
-                Bienvenido
+                <h1 class="rale">Bienvenido Administrador</h1>
             <%
                 //out.print("Admin "+ session.getAttribute("nombreusu"));
             break;
@@ -111,13 +112,22 @@
             case 2:
                 //out.print("Cliente");
                 %>
-                <form action="comentar">
+                <div class="container">
+                    <h1 class="rale">Ingresa un comentario</h1>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-4">
+                            <form action="comentar">
+                                <textarea name="comentario" cols="40" rows="5" required class="form-control"></textarea>
+                                <input type="hidden" value="<%out.print(id);%>" name="id">
+                                <br>
+                                <input type="submit" value="Comentar" class="bot form-control">
+                            </form>
+                            
+                        </div>
+                    </div>
                     
-                    <h2>Ingresa un comentario</h2>
-                    <textarea name="comentario" cols="40" rows="5"></textarea>
-                    <input type="hidden" value="<%out.print(id);%>" name="id">
-                    <input type="submit" value="Comentar">
-                </form>
+                </div>
+                    
             <%
 
             break;
