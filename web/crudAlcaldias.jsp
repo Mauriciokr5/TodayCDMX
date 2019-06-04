@@ -49,7 +49,7 @@
                         <li><a href="mapa.jsp">Mapa ciudad</a></li>
                         <li><a href="crudUsu.jsp">Usuarios</a></li>
                         <li><a href="crudAlcaldias.jsp">Alcaldias</a></li>
-                        <li><a href="">Encuestas</a></li>
+                        <li><a href="encuestas.jsp">Encuestas</a></li>
                         <li><a href="comentarios.jsp">Comentarios</a></li>
                         <li><a href="cerrarSesion.jsp">Cerrar Sesión</a></li>
                     </ul>
@@ -67,7 +67,7 @@
                         <th>
                             Alcaldía
                         </th>
-                        <th><a href="newUsu.jsp" ><button type="button" class="btn btn-success">Nuevo</button></a></th>
+                        <th><a href="newAlca.jsp" ><button type="button" class="btn btn-success">Nuevo</button></a></th>
                         <th></th>
                     </tr>
                     <%

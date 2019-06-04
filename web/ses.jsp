@@ -4,6 +4,10 @@
     Author     : Mauricio Beltrán
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="beans.dbmanager"%>
 <%@page import="beans.USU"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,10 +21,31 @@
             nivel=Integer.parseInt(y);
             USU e = new USU();
             //e = (USU) session.getAttribute("usuario");
+            dbmanager db= new dbmanager();
             
-        }catch(Exception ws){
-        response.sendRedirect("index.jsp");
+            Connection cn = db.Conectar();
+            String q;
+            q="SELECT hecho, idUsu FROM proaula.usuario INNER JOIN enclisto ON usuario.idusuario = enclisto.idUsu where correo=?;";//?= echale lo que quieras
+
+            PreparedStatement ps=cn.prepareStatement(q);
+            ps.setString(1, mail);
+            
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()) {
+                if (rs.getInt(1)==0) {
+                    response.sendRedirect("doEncuesta.jsp?idUsu="+rs.getInt(2));
+                }
+                
+            }            
+            cn.close();        
+        }catch(Exception d){
+            System.out.println("No hay conexion... (Solo jugo contigo) getEmpleado");
+            System.out.println(d.getMessage());
+            System.out.println(d.getStackTrace());
+            response.sendRedirect("index.jsp");
         }
+        
+        
        
     
     

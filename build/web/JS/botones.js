@@ -8,6 +8,10 @@ function cambioHref(id){
     var nombre =document.getElementById("but"+id).value;
     document.getElementById("alcal").value=id;
     document.getElementById("nom").innerHTML=nombre;
+    var botones=document.getElementsByName("boton");
+    for (var i = 0; i < botones.length; i++) {
+        botones[i].style.display="inline";
+    }
     //alert(id);
 }
 function redi(id){

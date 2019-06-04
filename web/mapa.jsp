@@ -18,9 +18,9 @@
             y=""+session.getAttribute("levelac");
 
             nivel=Integer.parseInt(y);
-            if (nivel!=1) {
+            /*if (nivel!=1) {
                     response.sendRedirect("index.jsp");
-                }
+                }*/
             
             //e = (USU) session.getAttribute("usuario");
             
@@ -39,23 +39,45 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <header>
-            <div class="container">
-                <h1 class="logo">ProAula</h1>
+        <%
+        if (nivel==1) {
+            %>
+                <header>
+                    <div class="container">
+                        <h1 class="logo">ProAula</h1>
 
-                <nav>
-                    <ul>
-                        <li><a href="ses.jsp">Inicio</a></li>
-                        <li><a href="mapa.jsp">Mapa ciudad</a></li>
-                        <li><a href="crudUsu.jsp">Usuarios</a></li>
-                        <li><a href="crudAlcaldias.jsp">Alcaldias</a></li>
-                        <li><a href="encuestas.jsp">Encuestas</a></li>
-                        <li><a href="comentarios.jsp">Comentarios</a></li>
-                        <li><a href="cerrarSesion.jsp">Cerrar Sesión</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+                        <nav>
+                            <ul>
+                                <li><a href="ses.jsp">Inicio</a></li>
+                                <li><a href="mapa.jsp">Mapa ciudad</a></li>
+                                <li><a href="crudUsu.jsp">Usuarios</a></li>
+                                <li><a href="crudAlcaldias.jsp">Alcaldias</a></li>
+                                <li><a href="encuestas.jsp">Encuestas</a></li>
+                                <li><a href="comentarios.jsp">Comentarios</a></li>
+                                <li><a href="cerrarSesion.jsp">Cerrar Sesión</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+            <%
+        }else{
+            %>
+                <header>
+                    <div class="container">
+                        <h1 class="logo">ProAula</h1>
+
+                        <nav>
+                            <ul>
+                                <li><a href="ses.jsp">Inicio</a></li>
+                                <li><a href="mapa.jsp">Mapa ciudad</a></li>
+                                <li><a href="cerrarSesion.jsp">Cerrar Sesión</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+            <%
+        }
+        %>
         
         <div class="row">
             
@@ -105,7 +127,7 @@
                     while(rs.next()){
                         //out.print(rs.getString("comentario"));
                         %>
-                        <a id="<%out.print(rs.getString("idtipografica"));%>" onclick="redi(this.id)"><button  type="button" class="btn btn-light" ><%out.print(rs.getString("tipografica"));%></button></a>
+                        <a id="<%out.print(rs.getString("idtipografica"));%>" onclick="redi(this.id)" style="display:none;" name="boton"><button  type="button" class="btn btn-light" ><%out.print(rs.getString("tipografica"));%></button></a>
                        
                         <%
                         //plat.add(rs.getString("platillos.platillo"));
