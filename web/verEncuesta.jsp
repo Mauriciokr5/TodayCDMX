@@ -36,13 +36,14 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./CSS/navbar_css.css"/>
+        <link rel="stylesheet" href="./CSS/login_css.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Encuesta</title>
     </head>
     <body>
         <header>
             <div class="container">
-                <h1 class="logo">ProAula</h1>
+                <h1 class="logo">TodayCDMX</h1>
 
                 <nav>
                     <ul>
@@ -57,8 +58,10 @@
                 </nav>
             </div>
         </header>
-        <h1>Encuesta</h1>
         <div class="container">
+            <h1 class="rale">Encuesta</h1>
+            <div class="row justify-content-md-center">
+                <div class="man col-md-8">
         <%
         try{
             dbmanager db= new dbmanager();
@@ -72,7 +75,7 @@
             while(rs.next()){
 
                 %>
-                <p><%out.print(rs.getString("pregunta"));%></p>
+                <p class="tit" ><%out.print(rs.getString("pregunta"));%></p>
                     <%
                     try{
                         dbmanager db2= new dbmanager();
@@ -85,7 +88,7 @@
 
                         while(rs2.next()){
                             %>
-                            <input type="text" readonly="readonly" value="<%out.print(rs2.getString("opcion"));%>">
+                            <input class="form-control" type="text" readonly="readonly" value="<%out.print(rs2.getString("opcion"));%>">
                             
                            <%
                         }
@@ -106,6 +109,8 @@
 
         }
         %>
+        </div>
+        </div>
         </div>
     </body>
 </html>

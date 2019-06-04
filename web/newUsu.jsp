@@ -32,13 +32,14 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./CSS/navbar_css.css"/>
+        <link rel="stylesheet" href="./CSS/login_css.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Nuevo Usuario</title>
     </head>
     <body>
         <header>
             <div class="container">
-                <h1 class="logo">ProAula</h1>
+                <h1 class="logo">TodayCDMX</h1>
 
                 <nav>
                     <ul>
@@ -53,20 +54,28 @@
                 </nav>
             </div>
         </header>
+        <div class="container">
+            <h1 class="rale">Modificar Usuario</h1>
+            <div class="row justify-content-md-center">
+                <div class="man col-md-4">
+                    <form action="registroAdmin" >
+                        <p class="tit">Nombre</p>
+                        <input type="text" name="nomb" minlength="3" maxlength="50" class="form-control" required>
+                        <p class="tit">Correo</p>
+                        <input type="email" name="correo" minlength="3" maxlength="50" class="form-control" required>
+                        <p class="tit">Contraseña</p>
+                        <input type="password" name="contra" minlength="3" maxlength="50" class="form-control" required>
+                        <p class="tit">Tipo usuario</p>
+                        <select name="tipo" class="form-control">
+                            <option value="1">Administrador</option>
+                            <option value="2" selected >Cliente</option>
+                         </select>
+                        <br><br>
+                        <input type="submit" class="form-control bot">
+                    </form>
+                </div>
+            </div>
+        </div>
         
-        <form action="registroAdmin" >
-            <p>Nombre</p>
-            <input type="text" name="nomb" minlength="3" maxlength="50">
-            <p>Correo</p>
-            <input type="email" name="correo" minlength="3" maxlength="50">
-            <p>Contraseña</p>
-            <input type="password" name="contra" minlength="3" maxlength="50">
-            <p>Tipo usuario</p>
-            <select name="tipo">
-                <option value="1">Administrador</option>
-                <option value="2" selected >Cliente</option>
-             </select>
-            <input type="submit">
-        </form>
     </body>
 </html>

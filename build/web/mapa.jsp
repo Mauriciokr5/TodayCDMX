@@ -37,7 +37,7 @@
         <link rel="stylesheet" href="./CSS/navbar_css.css"/>
         <link rel="stylesheet" href="./CSS/login_css.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Mapa</title>
     </head>
     <body>
         <%

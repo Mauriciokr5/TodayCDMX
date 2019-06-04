@@ -73,12 +73,12 @@
         <link rel="stylesheet" href="./CSS/navbar_css.css"/>
         <link rel="stylesheet" href="./CSS/login_css.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Modificar Usuario</title>
     </head>
     <body>
         <header>
             <div class="container">
-                <h1 class="logo">ProAula</h1>
+                <h1 class="logo">TodayCDMX</h1>
 
                 <nav>
                     <ul>
@@ -96,18 +96,19 @@
         <div class="container">
             <h1 class="rale">Modificar Usuario</h1>
             <div class="row justify-content-md-center">
-                <div class="col-md-4">
+                <div class="man col-md-4">
                     <form action="mod2">
                         <input type="hidden" value="<%out.print(id);%>" name="id">
-                        <p>Nombre</p>
-                        <input type="text" value="<%out.print(e.getNombre());%>" name="nom">
-                        <p>Correo</p>
-                        <input type="email" value="<%out.print(e.getCorreo());%>" name="mail">
-                        <p>Contraseña</p>
-                        <input type="password" value="<%out.print(e.getContrasena());%>" name="contra">
-                        <p>Tipo Usario</p>
-                        <input type="text" value="<%out.print(e.getTipo());%>" name="tipo">
-                        <input type="submit" value="Enviar">
+                        <p class="tit">Nombre</p>
+                        <input class="form-control" type="text" value="<%out.print(e.getNombre());%>" name="nom" required>
+                        <p class="tit">Correo</p>
+                        <input class="form-control" type="email" value="<%out.print(e.getCorreo());%>" name="mail" required>
+                        <p class="tit">Contraseña</p>
+                        <input class="form-control" type="password" value="<%out.print(e.getContrasena());%>" name="contra" required>
+                        <p class="tit">Tipo Usario</p>
+                        <input class="form-control" type="text" value="<%out.print(e.getTipo());%>" name="tipo" required>
+                        <br><br>
+                        <input type="submit" value="Enviar" class="form-control bot">
 
                     </form>
                 </div>

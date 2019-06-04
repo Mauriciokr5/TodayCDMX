@@ -65,13 +65,14 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./CSS/navbar_css.css"/>
+        <link rel="stylesheet" href="./CSS/login_css.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Modificar Alcaldía</title>
     </head>
     <body>
         <header>
             <div class="container">
-                <h1 class="logo">ProAula</h1>
+                <h1 class="logo">TodayCDMX</h1>
 
                 <nav>
                     <ul>
@@ -86,15 +87,22 @@
                 </nav>
             </div>
         </header>
-        <h1>Modificar Alcaldia</h1>
-        <form action="modNombreAlca">
-            <input type="hidden" value="<%out.print(id);%>" name="idAlca">
-            <h2>Nombre</h2>
-            <input type="text" value="<%out.print(alcaldia);%>" name="newNom">
-            <input type="submit" value="Enviar">
-            
-        </form>
-            <div class="dist_botones">
+        <div class="container">
+            <h1 class="rale">Modificar Alcaldía</h1>
+            <div class="row justify-content-md-center">
+                <div class="man col-md-4">
+                    <form action="modNombreAlca">
+                        <input type="hidden" value="<%out.print(id);%>" name="idAlca">
+                        <h2 class="tit">Nombre</h2>
+                        <input type="text" value="<%out.print(alcaldia);%>" name="newNom" class="form-control" required>
+                        <br><br>
+                        <input type="submit" value="Enviar" class="bot form-control">
+
+                    </form>
+                </div>
+        
+            <div class="col-md-1">
+            <div class="col-md-3 dist_botones">
             <%
         try{
             dbmanager db= new dbmanager();
@@ -108,7 +116,8 @@
             while(rs.next()){
                 //out.print(rs.getString("comentario"));
                 %>
-                <a href="modData.jsp?&idAlca=<%out.print(id);%>&idGraf=<%out.print(rs.getString("idtipografica"));%>"><button  type="button" class="btn btn-secondary"><%out.print(rs.getString("tipografica"));%></button></a>
+                <a  href="modData.jsp?&idAlca=<%out.print(id);%>&idGraf=<%out.print(rs.getString("idtipografica"));%>"><button type="button" class="sep btn btn-secondary"><%out.print(rs.getString("tipografica"));%></button></a>
+                <br>
                 <%
                 
                         
@@ -122,5 +131,13 @@
         }
         %>
                 </div>
+            </div>
+        </div>
+        <style>
+            .sep{
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        </style>
     </body>
 </html>

@@ -39,12 +39,20 @@
             
             Connection cn = db.Conectar();
             String q;
-            q="delete from usuario where idusuario = ?";//?= echale lo que quieras
+            q="delete from enclisto where idUsu = ?";//?= echale lo que quieras
 
             PreparedStatement ps=cn.prepareStatement(q);
             ps.setInt(1, id);
             
             estatus=ps.executeUpdate();
+            
+            
+            q="delete from usuario where idusuario = ?";//?= echale lo que quieras
+
+            PreparedStatement ps2=cn.prepareStatement(q);
+            ps2.setInt(1, id);
+            
+            estatus=ps2.executeUpdate();
             
             response.sendRedirect("crudUsu.jsp");
             
@@ -65,6 +73,6 @@
         <title>Borrar</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1><%out.print(id);%></h1>
     </body>
 </html>
