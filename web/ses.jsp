@@ -11,9 +11,9 @@
         int nivel=0;
         try{
             session = request.getSession();
-            String y;
+            String y,mail;
             y=""+session.getAttribute("levelac");
-
+            mail=""+session.getAttribute("correo");
             nivel=Integer.parseInt(y);
             USU e = new USU();
             //e = (USU) session.getAttribute("usuario");

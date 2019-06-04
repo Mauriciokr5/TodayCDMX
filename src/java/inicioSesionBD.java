@@ -56,6 +56,7 @@ public class inicioSesionBD extends HttpServlet {
                 sesion.setAttribute("levelac", null);
                 sesion.setAttribute("levelac", e.getTipo());
                 sesion.setAttribute("nombreusu", e.getNombre());
+                sesion.setAttribute("correo", e.getCorreo());
                 if (rolicus!=0) {
                     if(e.getTipo()==1){
                     response.sendRedirect("ses.jsp");

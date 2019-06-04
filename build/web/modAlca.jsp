@@ -108,7 +108,7 @@
             while(rs.next()){
                 //out.print(rs.getString("comentario"));
                 %>
-                <a href="modAlca.jsp?&idAlca=<%out.print(id);%>&idGraf=<%out.print(rs.getString("idtipografica"));%>"><button  type="button" class="btn btn-secondary"><%out.print(rs.getString("tipografica"));%></button></a>
+                <a href="modData.jsp?&idAlca=<%out.print(id);%>&idGraf=<%out.print(rs.getString("idtipografica"));%>"><button  type="button" class="btn btn-secondary"><%out.print(rs.getString("tipografica"));%></button></a>
                 <%
                 
                         

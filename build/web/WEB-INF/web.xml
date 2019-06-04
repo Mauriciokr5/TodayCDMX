@@ -20,6 +20,10 @@
         <servlet-name>modNombreAlca</servlet-name>
         <servlet-class>modNombreAlca</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>modDataBD</servlet-name>
+        <servlet-class>modDataBD</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registroBD</servlet-name>
         <url-pattern>/registroBD</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>modNombreAlca</servlet-name>
         <url-pattern>/modNombreAlca</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modDataBD</servlet-name>
+        <url-pattern>/modDataBD</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,12 +1,12 @@
 <%-- 
-    Document   : modAlca
-    Created on : 2/06/2019, 01:59:44 PM
+    Document   : modData
+    Created on : 2/06/2019, 03:06:58 PM
     Author     : Mauricio Beltrán
 --%>
 
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="beans.dbmanager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -30,33 +30,55 @@
         response.sendRedirect("index.jsp");
         }
         
-        int id, estatus;
+        int id, idGraf, estatus;
         id=Integer.parseInt(request.getParameter("idAlca"));
-
-        String alcaldia="";
-                
+        idGraf=Integer.parseInt(request.getParameter("idGraf"));
+        
+        float antes=15, now=15, despues=15;
+        String hol="yes";
         try{
             dbmanager db= new dbmanager();
             
             Connection cn = db.Conectar();
             String q;
-            q="SELECT * FROM proaula.alcaldias where idalcaldias = ?";//?= echale lo que quieras
+            q="SELECT atras,now,delante FROM proaula.graficasdata where idtipograf= ? and idalcaldia=?";//?= echale lo que quieras
 
             PreparedStatement ps=cn.prepareStatement(q);
-            ps.setInt(1, id);
+            ps.setInt(1, idGraf);
+            ps.setInt(2, id);
             
             ResultSet rs=ps.executeQuery();
             if (rs.next()) {
-                alcaldia = rs.getString(2);
+                antes=rs.getFloat(1);
+                now=rs.getFloat(2);
+                despues=rs.getFloat(3);
                 
-            }            
+            }else{
+                dbmanager db2= new dbmanager();
+            
+                Connection cn2 = db2.Conectar();
+                String q2;
+                q2="insert into proaula.graficasdata(idtipograf,idalcaldia) values (?,?)";//?= echale lo que quieras
+
+                ps=cn2.prepareStatement(q2);
+
+
+
+                ps.setInt(1, idGraf);
+                ps.setInt(2, id);
+
+
+
+
+                estatus=ps.executeUpdate();
+                response.sendRedirect("modData.jsp?&idAlca="+id+"&idGraf="+idGraf);
+            }
             cn.close();        
         }catch(Exception d){
             System.out.println("No hay conexion... (Solo jugo contigo) getEmpleado");
             System.out.println(d.getMessage());
             System.out.println(d.getStackTrace());
         }
-        
 
 
 
@@ -86,41 +108,22 @@
                 </nav>
             </div>
         </header>
-        <h1>Modificar Alcaldia</h1>
-        <form action="modNombreAlca">
-            <input type="hidden" value="<%out.print(id);%>" name="idAlca">
-            <h2>Nombre</h2>
-            <input type="text" value="<%out.print(alcaldia);%>" name="newNom">
+        <h1>Modificar Datos</h1>
+        
+        
+        <form action="modDataBD">
+            <input type="hidden" value="<%out.print(id);%>" name="idalca">
+            <input type="hidden" value="<%out.print(idGraf);%>" name="idgraf">
+            
+            <h1>Dato Pasado</h1>
+            <input type="number" value="<%out.print(antes);%>" name="antes">
+            <h1>Dato actual</h1>
+            <input type="number" value="<%out.print(now);%>" name="now">
+            <h1>Estimación</h1>
+            <input type="number" value="<%out.print(despues);%>"readonly="readonly">
             <input type="submit" value="Enviar">
             
         </form>
-            <div class="dist_botones">
-            <%
-        try{
-            dbmanager db= new dbmanager();
-
-            Connection cn = db.Conectar();
-
-            Statement st= cn.createStatement();
-
-            ResultSet rs= st.executeQuery("SELECT * FROM tipografica ");
-
-            while(rs.next()){
-                //out.print(rs.getString("comentario"));
-                %>
-                <a href="modData.jsp?&idAlca=<%out.print(id);%>&idGraf=<%out.print(rs.getString("idtipografica"));%>"><button  type="button" class="btn btn-secondary"><%out.print(rs.getString("tipografica"));%></button></a>
-                <%
-                
-                        
-                //plat.add(rs.getString("platillos.platillo"));
-            }
-            cn.close();
-
-        }catch(Exception e){
-           // producto=String.valueOf(e);
-
-        }
-        %>
-                </div>
+        
     </body>
 </html>
