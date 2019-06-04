@@ -32,6 +32,10 @@
         <servlet-name>enviarEncuesta</servlet-name>
         <servlet-class>enviarEncuesta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>comentar</servlet-name>
+        <servlet-class>comentar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registroBD</servlet-name>
         <url-pattern>/registroBD</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>enviarEncuesta</servlet-name>
         <url-pattern>/enviarEncuesta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>comentar</servlet-name>
+        <url-pattern>/comentar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <% 
         int nivel=0;
+        int id = 0;
         try{
             session = request.getSession();
             String y,mail;
@@ -32,6 +33,7 @@
             
             ResultSet rs=ps.executeQuery();
             if (rs.next()) {
+                id=rs.getInt(2);
                 if (rs.getInt(1)==0) {
                     response.sendRedirect("doEncuesta.jsp?idUsu="+rs.getInt(2));
                 }
@@ -96,6 +98,32 @@
                 </nav>
             </div>
         </header> 
+        <%
+                   
+        switch(nivel){
+            case 1:
+                %>
+                Bienvenido
+            <%
+                //out.print("Admin "+ session.getAttribute("nombreusu"));
+            break;
+
+            case 2:
+                //out.print("Cliente");
+                %>
+                <form action="comentar">
+                    
+                    <h2>Ingresa un comentario</h2>
+                    <textarea name="comentario" cols="40" rows="5"></textarea>
+                    <input type="hidden" value="<%out.print(id);%>" name="id">
+                    <input type="submit" value="Comentar">
+                </form>
+            <%
+
+            break;
+
+        }
+        %>
         
     </body>
 </html>
