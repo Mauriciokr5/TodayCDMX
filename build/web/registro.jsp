@@ -14,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro</title>
     </head>
-    <body>
+    <body onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false">
         <header>
             <div class="container">
                 <h1 class="logo">TodayCDMX</h1>
